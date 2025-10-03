@@ -70,3 +70,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// footer
+
+function scrollToNext() 
+{
+  const nextSection = document.querySelector('.features');
+  if (nextSection) {
+    nextSection.scrollIntoView({ behavior: 'smooth' });
+  }
+}
