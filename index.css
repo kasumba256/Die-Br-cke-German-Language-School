@@ -108,6 +108,11 @@ nav {
     transform: translateY(-2px) scale(1.04);
 }
 
+main {
+    text-align: center;
+    padding: 4rem 1rem 2rem 1rem;
+}
+
 h1
 {
     
@@ -170,13 +175,14 @@ p
 /* Features Section */
 .features 
 {
-  margin-top: 160px;
+  margin-top: 80px;
   display: flex;
   justify-content: space-around;
   padding: 60px 20px;
   background-color: #102b4d;
   flex-wrap: wrap;
 }
+
 .feature {
   text-align: center;
   max-width: 250px;
