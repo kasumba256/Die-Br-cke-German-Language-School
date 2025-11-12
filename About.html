@@ -27,7 +27,7 @@
             <div class="nav-links">
                 <a href="Index.html">Home</a>
                 <a href="About.html">About</a>
-                <a href="Courses.html">Courses</a>
+                <a href="./course.html">Courses</a>
                 <a href="Contact.html">Contact</a>
             </div>
             <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
@@ -43,7 +43,7 @@
                 <div class="journey-image">
                    <img src="./Images/students- class.jpg"  alt="German language class"> 
                    <div class="stats-box">
-                     <h2>500+</h2>
+                     <h2>450+</h2>
                       <p>Successful Students</p>
                     </div>
                 </div>
@@ -62,10 +62,42 @@
                         <li>Cultural immersion activities and events</li>
                         <li>Preparation for official certifications </li>
                     </ul>
+                    <!-- CTA Button -->
+                     <a href="#" class="cta-btn" id="openPopup">Join Now</a>
                 </div>
                 
             </div>
         </section>
+
+          <!-- Popup Form -->
+        <div class="popup-overlay" id="popupForm">
+          <div class="popup-box">
+            <span class="close-btn" id="closePopup">&times;</span>
+              <h2>Join Our German Classes</h2>
+                <p>Fill out the form below and we’ll get in touch with you soon.</p>
+
+         <!-- ✅ Formspree Form  https://formspree.io/  https://formspree.io/f/mnqkyjvd    -->
+
+        <form action="https://formspree.io/f/mnqkyjvd" method="POST">
+         <label for="name">Full Name</label>
+           <input type="text" id="name" name="name" placeholder="Your name" required>
+
+         <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+         <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+256 700 000 000" required>
+
+         <button type="submit" class="submit-btn">Submit</button>
+         </form>
+
+         <div id="form-success" class="success-e">
+           ✅ Thank you! Your message has been sent successfully.
+         </div>
+        </div>
+  </div>
+
+
     
         <!--
          <section>
@@ -105,7 +137,7 @@
          <span>🏅</span>
          </div>
          <h3>Proven Excellence</h3>
-         <p>Over 15 years of helping students achieve their German language goals, from basic conversation to business fluency.</p>
+         <p>Over 4 years of helping students achieve their German language goals, from basic conversation to business fluency.</p>
         </div>
         </section>
     </main>
@@ -129,26 +161,9 @@
       -->   
          
 
+    <script src="About.js"></script>
 
 
-
-    <!--   
-        <h2>Our Mission</h2>
-        <p>We believe that learning a new language opens doors to new opportunities and experiences. Our mission is to create a supportive and engaging learning environment where students of all levels can thrive and achieve their language goals.</p>
-
-        <h2>Our Values</h2>
-        <ul>
-            <li><strong>Excellence:</strong> We are committed to delivering the highest quality education through experienced instructors and well-designed curricula.</li>
-            <li><strong>Community:</strong> We foster a sense of community among our students, encouraging collaboration and cultural exchange.</li>
-            <li><strong>Innovation:</strong> We continuously seek innovative teaching methods and technologies to enhance the learning experience.</li>
-            <li><strong>Inclusivity:</strong> We welcome students from diverse backgrounds and strive to create an inclusive environment for all learners.</li>
-        </ul>
-
-        <h2>Meet Our Team</h2>
-        <p>Our team of dedicated instructors are native German speakers with extensive teaching experience. They are passionate about helping students succeed and are committed to providing personalized attention to meet each student's unique needs.</p>
-
-        <h2>Join Us</h2>
-        <p>Whether you are a beginner or looking to refine your advanced skills
-            -->  
+    
 </body>
 </html>

@@ -110,7 +110,7 @@ main
   padding: 4rem 2rem;
   display: flex;
   justify-content: center;
-  border: 2px solid #070b0c;
+ 
 }
 .journey-container 
 {
@@ -162,9 +162,69 @@ main
   flex: 1 1 50%;
 }
 
+.journey-content h2 
+{
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.journey-content p 
+{
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+/* Features List */
+.features-list {
+  list-style: none;
+}
+
+.features-list li {
+  font-size: 1.05rem;
+  color: #475569;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.features-list li::before
+ {
+  content: "✔️";
+  color: #16a34a;
+}
+
+/* CTA Button */
+.cta-btn 
+{
+  display: inline-block;
+  background-color: #f97316;
+  color: white;
+  padding: 0.9rem 2rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.3);
+}
+
+.cta-btn:hover {
+  background-color: #ea580c;
+  box-shadow: 0 6px 18px rgba(234, 88, 12, 0.4);
+  transform: translateY(-3px);
+}
+
+
+
 
 /* Features Section */
-.features {
+.features 
+{
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -188,6 +248,10 @@ main
   transform: translateY(-5px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
+
+
+
+
 
 /* Icon Circle */
 .icon 
@@ -219,11 +283,27 @@ p
 }
 
 /* Responsive Layout */
-@media (max-width: 900px) {
-  .features {
+@media (max-width: 900px) 
+{
+  .features 
+  {
     flex-direction: column;
     align-items: center;
   }
+
+  .journey-container {
+    flex-direction: column;
+  }
+
+  .journey-image,
+  .journey-content {
+    flex: 1 1 100%;
+  }
+
+  .journey-content h2 {
+    font-size: 1.6rem;
+  }
+
 }
 
 
