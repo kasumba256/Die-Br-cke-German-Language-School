@@ -222,6 +222,120 @@ main
 
 
 
+/* Popup overlay & box */
+.popup-overlay {
+  display: none; /* toggle with .active or via JS */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 9999;
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+.popup-box {
+  background: #fff;
+  width: min(92%, 520px);
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 1.75rem;
+  box-shadow: 0 16px 48px rgba(16,43,77,0.18);
+  position: relative;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-size: 1.6rem;
+  color: #666;
+  cursor: pointer;
+  line-height: 1;
+  background: transparent;
+  border: none;
+  padding: 6px;
+}
+
+/* Form layout */
+.popup-box form {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.popup-box label {
+  display: block;
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0.6rem 0 0.35rem;
+  font-weight: 500;
+}
+
+.popup-box input[type="text"],
+.popup-box input[type="email"],
+.popup-box input[type="tel"],
+.popup-box textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #e3e7eb;
+  background: #fff;
+  font-size: 1rem;
+  color: #222;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+  outline: none;
+}
+.popup-box input:focus,
+.popup-box textarea:focus {
+  border-color: #00b4d8;
+  box-shadow: 0 6px 20px rgba(0,180,216,0.08);
+}
+
+/* Submit button */
+.submit-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
+  color: #fff;
+  border: none;
+  padding: 0.68rem 1.25rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.submit-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.98;
+}
+
+/* Success message */
+.success-e {
+  display: none;
+  margin-top: 1rem;
+  background: #e9f9ef;
+  color: #0a7a3a;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 600;
+  align-items: center;
+}
+
+.success-e.visible {
+  display: block;
+}
+
+
+
+
 /* Features Section */
 .features 
 {
@@ -283,6 +397,23 @@ p
 }
 
 /* Responsive Layout */
+
+
+/* Small screens */
+@media (max-width: 420px) 
+{
+  .popup-box {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  .close-btn {
+    right: 8px;
+    top: 6px;
+  }
+}
+
+
+
 @media (max-width: 900px) 
 {
   .features 
