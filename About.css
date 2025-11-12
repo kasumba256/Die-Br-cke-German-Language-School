@@ -97,16 +97,151 @@ nav
     transform: translateY(-2px) scale(1.04);
 }
 
-main {
+main
+ {
     text-align: center;
     padding: 4rem 1rem 2rem 1rem;
 }
 
+/* Layout Section */
+
+.journey-section 
+{
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #070b0c;
+}
+.journey-container 
+{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Image Side */
+.journey-image 
+{
+  position: relative;
+  flex: 1 1 45%;
+}
+.journey-image img 
+{
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+.stats-box 
+{
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.stats-box h2 
+{
+  font-size: 2rem;
+  color: #0f172a;
+}
+.stats-box p 
+{
+  color: #64748b;
+  font-size: 0.95rem;
+}
+/* Text Side */
+.journey-content 
+{
+  flex: 1 1 50%;
+}
+
+
+/* Features Section */
+.features {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.feature-box 
+{
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  max-width: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover 
+{
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon Circle */
+.icon 
+{
+  background: #fff4ee;
+  color: #f27b35;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2rem;
+}
+
+/* Titles and Text */
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+p 
+{
+  color: #667085;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .features {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 
 /* pre-footer section */
-.pre-footer {
+
+/*
+.pre-footer 
+{
     height: 150px;
     background-color: #e0f7fa;
     margin-top: 4rem;
     border: 2px solid #0077b6;
+    display: flex;
+
+    flex-direction: column; 
+    align-items: center;
+    gap: 1.25rem;
+    padding: 2.5rem 1rem;
 }
+
+*/
