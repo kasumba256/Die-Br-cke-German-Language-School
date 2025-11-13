@@ -363,10 +363,6 @@ main
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-
-
-
-
 /* Icon Circle */
 .icon 
 {
@@ -396,8 +392,104 @@ p
   line-height: 1.6;
 }
 
-/* Responsive Layout */
+/* Footer styles */
+.site-footer {
+  background: #0f2236;
+  color: #fff;
+  padding: 2rem 1rem;
+  margin-top: 2.5rem;
+}
 
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-logo {
+  height: 44px;
+  display: block;
+}
+
+.school-sub {
+  display: block;
+  font-size: 0.85rem;
+  color: #bcd9f0;
+  margin-top: -2px;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: #cfe8f7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  align-items: flex-end;
+}
+
+.footer-contact a {
+  color: #e6f6ff;
+  text-decoration: none;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.footer-contact .social {
+  margin-top: 0.25rem;
+}
+
+.footer-contact .social a {
+  color: #ffcc80;
+  margin-left: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  color: #b9d8ee;
+}
+
+/* small screens: stack vertically */
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-contact {
+    align-items: center;
+  }
+  .footer-nav {
+    justify-content: center;
+  }
+}
 
 /* Small screens */
 @media (max-width: 420px) 
