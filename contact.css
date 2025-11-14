@@ -181,3 +181,116 @@ nav
     background: #eee;
 }
 
+/* ------------------ CTA SECTION ------------------ */
+.cta-section {
+    background: #0f1a2c;
+    color: #fff;
+    margin-top: 70px;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 20px 20px 0 0;
+}
+
+.cta-section h2 {
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.cta-section p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: #d4d7dd;
+}
+
+.cta-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(16, 43, 77, 0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 160ms ease;
+  user-select: none;
+}
+
+/* Primary (filled) */
+.cta-buttons .btn.primary {
+  background: linear-gradient(90deg, #ff8a3d 0%, #ff6b00 100%);
+  color: #fff;
+}
+
+/* Secondary (outline/light) */
+.cta-buttons .btn.secondary {
+  background: #fff;
+  color: #0f1a2c;
+  border: 1px solid #e6e6e6;
+}
+
+/* Hover / active / focus */
+.cta-buttons .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(16, 43, 77, 0.10);
+}
+
+.cta-buttons .btn:active {
+  transform: translateY(-1px);
+  opacity: 0.98;
+}
+
+.cta-buttons .btn:focus {
+  outline: 3px solid rgba(0, 180, 216, 0.15);
+  outline-offset: 3px;
+  box-shadow: 0 8px 28px rgba(0, 180, 216, 0.06);
+}
+
+/* Optional icon styling inside buttons */
+.cta-buttons .btn .icon {
+  display: inline-block;
+  font-size: 1.05rem;
+  line-height: 1;
+  margin-left: -0.2rem;
+}
+
+/* Responsive: full-width stacked buttons on small screens */
+@media (max-width: 600px) {
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cta-buttons .btn {
+    width: 100%;
+    padding: 0.95rem 1rem;
+  }
+}
+
+/* Small tweak for medium screens */
+@media (min-width: 601px) and (max-width: 900px) {
+  .cta-buttons .btn {
+    padding: 0.9rem 1.15rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) 
+{
+    .section-headline h1 
+    {
+        font-size: 32px;
+    }
+}
+
