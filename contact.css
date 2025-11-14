@@ -98,3 +98,86 @@ nav
     background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
     transform: translateY(-2px) scale(1.04);
 }
+
+
+
+/* ------------------ CONTACT SECTION ------------------ */
+.section-headline 
+{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.section-headline h1 {
+    font-size: 42px;
+    font-weight: 700;
+}
+
+.section-headline p {
+    font-size: 16px;
+    margin-top: 8px;
+    color: #555;
+}
+
+.contact-wrapper 
+{
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 45px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.contact-card 
+{
+    width: 300px;
+    background: #fff;
+    border-radius: 14px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.contact-card img.icon 
+{
+    width: 55px;
+    height: 55px;
+    margin-bottom: 20px;
+}
+
+.contact-card h3 
+{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.contact-card p 
+{
+    margin: 4px 0;
+    color: #555;
+}
+
+.contact-card .small 
+{
+    font-size: 14px;
+    color: #777;
+}
+
+.contact-card button 
+{
+    margin-top: 22px;
+    padding: 12px 22px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contact-card button:hover 
+{
+    background: #eee;
+}
+
