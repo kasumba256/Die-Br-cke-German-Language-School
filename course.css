@@ -3,7 +3,7 @@ body
     margin: 0;
     padding: 0;
     font-family: 'Inter', Arial, sans-serif;
-    background: #f8f9fa;
+    background: #0d0e10;
 }
 
 nav
@@ -11,16 +11,12 @@ nav
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background: #000000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     padding: 1.2rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-}
-.logo
-{
-    height: 52px;
 }
 .logo-group
 {
@@ -29,14 +25,31 @@ nav
     gap: 1.2rem;
     margin-right: 3.5rem;
 }
+.logo
+{
+    height: 52px;
+   
+}
+
 .school-name
 {
     font-family: 'Playfair Display', serif;
     font-size: 1.35rem;
     font-weight: 200;
-    color: #3586b2;
+    color: #d49d2a;
     letter-spacing: 0.01em;
     white-space: nowrap;
+}
+.school-sub 
+{
+    display: block;
+    font-size: 0.85em;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    margin-top: -2px;
+    margin-left: 2px;
 }
 .nav-content
 {
@@ -54,7 +67,7 @@ nav
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    color: #333;
+    color: #e9e9e9;
     transition: color 0.3s ease;
 }
 
@@ -63,7 +76,7 @@ nav
     display: block;
     width: 0;
     height: 2px;
-    background: #0077b6;
+    background:#e5a900 ;
     transition: width 0.3s;
     position: absolute;
     left: 0;
@@ -72,7 +85,7 @@ nav
 
 .nav-links a:hover
 {
-    color: #3586b2;
+    color:#e5a900;
 }
 .nav-links a:hover::after 
 {
@@ -81,7 +94,7 @@ nav
 
 .enroll-btn 
 {
-    background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
+    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f  100%);
     color: #fff;
     border: none;
     border-radius: 24px;
@@ -95,7 +108,7 @@ nav
     outline: none;
 }
 .enroll-btn:hover {
-    background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f  100%);
     transform: translateY(-2px) scale(1.04);
 }
 
@@ -103,6 +116,7 @@ main
  {
     text-align: center;
     padding: 4rem 1rem 2rem 1rem;
+    color:#e9e9e9 ;
  }
 
 main h1
@@ -118,7 +132,7 @@ main h1
   max-width: 1100px;
   margin: 50px auto;
   padding: 20px;
-  border: 2px solid #070404;
+  
 }
 .pricing-cards 
 {

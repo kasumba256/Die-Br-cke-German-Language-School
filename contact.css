@@ -3,7 +3,7 @@ body
     margin: 0;
     padding: 0;
     font-family: 'Inter', Arial, sans-serif;
-    background: #f8f9fa;
+    background: #0d0e10;
 }
 
 nav
@@ -11,16 +11,12 @@ nav
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background: #000000;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     padding: 1.2rem 0;
     position: sticky;
     top: 0;
     z-index: 100;
-}
-.logo
-{
-    height: 52px;
 }
 .logo-group
 {
@@ -29,14 +25,30 @@ nav
     gap: 1.2rem;
     margin-right: 3.5rem;
 }
+.logo
+{
+    height: 52px;
+}
+
 .school-name
 {
     font-family: 'Playfair Display', serif;
     font-size: 1.35rem;
     font-weight: 200;
-    color: #3586b2;
+    color: #d49d2a;
     letter-spacing: 0.01em;
     white-space: nowrap;
+}
+.school-sub 
+{
+    display: block;
+    font-size: 0.85em;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    margin-top: -2px;
+    margin-left: 2px;
 }
 .nav-content
 {
@@ -54,7 +66,7 @@ nav
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
-    color: #333;
+    color: #e9e9e9;
     transition: color 0.3s ease;
 }
 
@@ -63,7 +75,7 @@ nav
     display: block;
     width: 0;
     height: 2px;
-    background: #0077b6;
+     background:#e5a900 ;
     transition: width 0.3s;
     position: absolute;
     left: 0;
@@ -72,7 +84,7 @@ nav
 
 .nav-links a:hover
 {
-    color: #3586b2;
+    color: #e5a900;
 }
 .nav-links a:hover::after 
 {
@@ -81,7 +93,7 @@ nav
 
 .enroll-btn 
 {
-    background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
+    background: linear-gradient(90deg,  #e5a900 0%, #e7ae0f  100%);
     color: #fff;
     border: none;
     border-radius: 24px;
@@ -95,7 +107,7 @@ nav
     outline: none;
 }
 .enroll-btn:hover {
-    background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+    background: linear-gradient(90deg,  #e5a900 0%, #e7ae0f  100%);
     transform: translateY(-2px) scale(1.04);
 }
 
@@ -106,17 +118,22 @@ nav
 {
     text-align: center;
     margin-top: 40px;
+     color: #f5f5f5;
+    
 }
 
-.section-headline h1 {
+.section-headline h1 
+{
     font-size: 42px;
     font-weight: 700;
+    
 }
 
-.section-headline p {
+.section-headline p 
+{
     font-size: 16px;
     margin-top: 8px;
-    color: #555;
+     color:#e9e9e9 ;
 }
 
 .contact-wrapper 
@@ -182,35 +199,59 @@ nav
 }
 
 /* ------------------ CTA SECTION ------------------ */
-.cta-section {
-    background: #0f1a2c;
+.cta-section 
+{
+    background: #111822;
     color: #fff;
-    margin-top: 70px;
     padding: 60px 20px;
     text-align: center;
     border-radius: 20px 20px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+    max-width: 100%;
+    animation: slideUp 0.4s ease-out;
 }
 
-.cta-section h2 {
+@keyframes slideUp 
+{
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.cta-section h2 
+{
     font-size: 32px;
     font-weight: 700;
+    margin: 0 0 8px 0;
 }
 
 .cta-section p {
     font-size: 16px;
-    margin-top: 10px;
+    margin: 0 0 20px 0;
     color: #d4d7dd;
 }
 
-.cta-buttons {
-    margin-top: 30px;
+.cta-buttons 
+{
+    margin-top: 0;
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.cta-buttons .btn {
+.cta-buttons .btn 
+{
   -webkit-appearance: none;
   appearance: none;
   border: none;
@@ -229,8 +270,9 @@ nav
 }
 
 /* Primary (filled) */
-.cta-buttons .btn.primary {
-  background: linear-gradient(90deg, #ff8a3d 0%, #ff6b00 100%);
+.cta-buttons .btn.primary 
+{
+  background: linear-gradient(90deg,#e5a900 0%, #e7ae0f 100%);
   color: #fff;
 }
 
@@ -267,7 +309,8 @@ nav
 }
 
 /* Responsive: full-width stacked buttons on small screens */
-@media (max-width: 600px) {
+@media (max-width: 600px) 
+{
   .cta-buttons {
     flex-direction: column;
     gap: 12px;
@@ -279,7 +322,8 @@ nav
 }
 
 /* Small tweak for medium screens */
-@media (min-width: 601px) and (max-width: 900px) {
+@media (min-width: 601px) and (max-width: 900px) 
+{
   .cta-buttons .btn {
     padding: 0.9rem 1.15rem;
   }
