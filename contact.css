@@ -75,7 +75,7 @@ nav
     display: block;
     width: 0;
     height: 2px;
-     background:#e5a900 ;
+    background:#e5a900 ;
     transition: width 0.3s;
     position: absolute;
     left: 0;
@@ -266,7 +266,7 @@ nav
   justify-content: center;
   box-shadow: 0 8px 20px rgba(16, 43, 77, 0.06);
   transition: transform 180ms ease, box-shadow 180ms ease, opacity 160ms ease;
-  user-select: none;
+  user-select:none;
 }
 
 /* Primary (filled) */

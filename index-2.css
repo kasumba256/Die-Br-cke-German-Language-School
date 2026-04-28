@@ -1,0 +1,274 @@
+
+/* style.css for Die Brücke German Language School */
+body 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #0d0e10;
+}
+nav 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    padding: 1.2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.logo-group 
+{
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-right: 3.5rem;
+}
+.logo 
+{
+    height: 52px;
+}
+.school-name
+{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 600; 
+    color: #e5a900;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+.school-sub 
+{
+    display: block;
+    font-size: 0.85em;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0.02em;
+    margin-top: -2px;  
+    margin-left: 2px;
+}
+.nav-content
+{
+    display: flex;
+    align-items: center;
+    gap: 3.5rem;  
+} 
+.nav-links
+{
+    display: flex;
+    gap: 2.7rem;
+}
+.nav-links a
+{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.2s;
+} 
+.nav-links a::after 
+{
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #e5a900;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+}
+.nav-links a:hover 
+{
+    color: #ecee6b;
+}
+.nav-links a:hover::after 
+{
+    width: 100%;
+}
+.enroll-btn 
+{
+    background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 0.7rem 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 3.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,183,221,0.08);
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+}
+.enroll-btn:hover 
+{
+    background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Main Content */
+
+main 
+{
+    text-align: center;
+    padding: 4rem 1rem 2rem 1rem;
+}
+h1
+{
+    
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #e5a900;
+    text-align: center;
+    margin-top: 3rem;
+}
+h2
+{
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+}
+p
+{
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button-group 
+{
+ 
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+.button-group button 
+{
+    background: linear-gradient(90deg, #cfc502 0%, #f0e801 100%);
+    color: #fff;
+    border: none;
+    border-radius: 24px;
+    padding: 0.7rem 1.7rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,183,221,0.08);
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+}
+.button-group button:hover 
+{
+    background: linear-gradient(90deg, #cfc502 0%, #f0e801 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Features Section */
+.features 
+{
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 20px;
+  background-color: #102b4d;
+  flex-wrap: wrap;
+}
+
+.feature {
+  text-align: center;
+  max-width: 250px;
+  margin: 20px;
+}
+.icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.feature h3 
+{
+  margin-bottom: 10px;
+  color: #e5dd00;
+}
+.feature p {
+  font-size: 0.95rem;
+}
+/*footer*/
+
+footer 
+{  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+}
+.scroll-indicator 
+{
+  font-size: 2rem;
+  color: #ff6b00;
+  cursor: pointer;
+}
+
+/* ════════════════════════════════════════════════════
+   BREAKPOINT 1 — 400px  (mid-size phones)
+════════════════════════════════════════════════════ */
+@media (min-width: 400px) 
+{
+ 
+  .navbar { padding: 14px 20px; }
+ 
+  .hero { padding: 72px 24px 80px; }
+ 
+  .hero-btns {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+ 
+  .btn-hero { width: auto; min-width: 170px; }
+ 
+  .features { padding: 60px 24px 68px; }
+}
+
+/* ════════════════════════════════════════════════════
+   BREAKPOINT 2 — 560px  (large phones / phablets)
+════════════════════════════════════════════════════ */
+@media (min-width: 560px) 
+{
+ 
+  .navbar { padding: 14px 28px; }
+  .nav-links { gap: 4px 24px; }
+  .nav-links a { font-size: 14px; }
+  .brand-name  { font-size: 18px; }
+ 
+  .hero { padding: 80px 32px 88px; }
+  .hero-body { font-size: 15px; max-width: 480px; }
+ 
+  .btn-hero { font-size: 15px; padding: 15px 32px; }
+ 
+  .features { padding: 64px 32px 72px; }
+ 
+  .feature-icon { font-size: 44px; }
+  .feature-title { font-size: 17px; }
+  .feature-desc  { font-size: 14px; }
+}
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+                                                                            

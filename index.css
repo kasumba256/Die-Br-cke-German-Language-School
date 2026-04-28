@@ -1,10 +1,12 @@
+
 /* style.css for Die Brücke German Language School */
 body 
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: 'Inter', Arial, sans-serif;
-    background: #f8f9fa;
+    background: #0d0e10;
 }
 
 
@@ -31,15 +33,15 @@ nav
 
 .logo 
 {
-    height: 48px;
+    height: 52px;
 }
 
 .school-name
 {
     font-family: 'Playfair Display', serif;
     font-size: 1.35rem;
-    font-weight: 200;
-     color: #d49d2a;
+    font-weight: 600;
+    color: #e5a900;
     letter-spacing: 0.01em;
     white-space: nowrap;
 }
@@ -75,10 +77,11 @@ nav
 .nav-links a 
 {
     text-decoration: none;
-    color: #ffffff; /* changed from #b12e2e to white */
+    /* color: #ffffff; changed from #b12e2e to white */
     font-size: 1.1rem;
     font-weight: 500;
-    position: relative;
+    color: #e9e9e9;
+    /*position: relative;*/
     transition: color 0.2s;
 }
 
@@ -88,14 +91,15 @@ nav
     display: block;
     width: 0;
     height: 2px;
-    background: #f7f3ce;
+    background: #e5a900;
     transition: width 0.3s;
     position: absolute;
     left: 0;
     bottom: -4px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover 
+{
     color: #ecee6b;
 }
 
@@ -235,22 +239,8 @@ footer
   cursor: pointer;
 }
 
-@media (max-width: 900px) {
-    .nav-content {
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-    .logo-group {
-        margin-right: 0;
-        gap: 0.7rem;
-    }
-    .enroll-btn {
-        margin-left: 0;
-    }
-    .school-name {
-        font-size: 1.1rem;
-    }
-}
+
+
 
 .nav-content {
     display: flex;
@@ -297,7 +287,8 @@ footer
     width: 100%;
 }
 
-.enroll-btn {
+.enroll-btn 
+{
     background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
     color: #fff;
     border: none;
@@ -317,14 +308,16 @@ footer
     transform: translateY(-2px) scale(1.04);
 }
 
-.logo-group {
+.logo-group 
+{
     display: flex;
     align-items: center;
     gap: 1.2rem;
     margin-right: 3.5rem;
 }
 
-.logo {
+.logo 
+{
     height: 48px;
 }
 
@@ -352,32 +345,128 @@ footer
     margin-left: 3.5rem;
 }
 
-@media (max-width: 700px) {
+/* Hamburger Menu Base Styles */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+    z-index: 110;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #e5a900;
+    border-radius: 2px;
+    margin: 5px 0;
+    transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 380px) 
+{
     .nav-content {
-        flex-direction: column;
-        gap: 1.2rem;
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+        justify-content: space-between;
+        align-items: center;
     }
-    .logo {
+    .logo-group {
+        flex-shrink: 0;
+        gap: 0.4rem;
         margin-right: 0;
     }
+    .logo {
+        display: none;
+    }
+    .school-name {
+        font-size: 1rem;
+        margin-right: 0;
+        flex-shrink: 0;
+    }
+    .school-sub {
+        font-size: 0.65em;
+    }
     .enroll-btn {
-        margin-left: 0;
+        display: none;
+    }
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: #e9d6d6;
+        flex-direction: column;
+        width: 100%;
+        padding: 1rem 0.5rem;
+        gap: 0.5rem;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        z-index: 100;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links a {
+        color: #e9e9e9;
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #333;
+    }
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+    .hamburger 
+    {
+        display: flex;
+        
+        width: 28px;
+        height: 28px;
+        pointer-events: auto;
+        opacity: 1;
+        flex-shrink: 0;
+        color: #e5a900;
+    
+        margin-left: 180px;
+    }
+    .hamburger span
+    {
+       color: #e5a900;
+    }
+    .nav-actions 
+    {
+        margin-left: auto;
+        gap: 0.3rem;
     }
 }
 
-@media (max-width: 900px) {
-    .nav-content {
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-    .logo-group {
-        margin-right: 0;
-        gap: 0.7rem;
-    }
-    .enroll-btn {
-        margin-left: 0;
-    }
-    .school-name {
-        font-size: 1.1rem;
-    }
-}
+
+    

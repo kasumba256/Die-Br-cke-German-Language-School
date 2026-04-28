@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die Brücke German Language School</title>
+    <meta name="description" content="Bridge cultures through language at Die Brücke German Language School. Expert instruction, personalized learning, and cultural immersion. Courses for all levels A1-C2." />
+    <meta name="author" content="Die Brücke German Language School" />
+    <link rel="stylesheet" href="./indexdie-brucke.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+      <div class="nav-content">
+
+        <div class="logo-group">
+          <img src="./Images/Logo-white.png" alt="Die Brücke Logo" class="logo" />
+          <span class="school-name">
+            Die Brücke
+            <span class="school-sub">German School</span>
+          </span>
+        </div>
+
+        <!-- ID added so the JS can find it -->
+        <div class="nav-links" id="navLinks">
+          <a href="./Index.html">Home</a>
+          <a href="./About.html">About</a>
+          <a href="./course.html">Courses</a>
+          <a href="./contact.html">Contact</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="enroll-btn" type="button">Enroll Now</button>
+
+          <!-- Hamburger — aria-expanded updated by JS -->
+          <div class="hamburger" id="hamburgerMenu"
+               role="button"
+               aria-label="Open navigation menu"
+               aria-expanded="false"
+               tabindex="0">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+
+    <main>
+        <h1>Die Brücke</h1>
+        <h2>German Language School</h2>
+        <p>Bridge cultures through language. Master German with expert teachers,<br>personalized learning, and authentic cultural immersion.</p>
+        <div class="button-group">
+            <button type="button">Start your Journey</button>
+            <button type="button">Explore Courses</button>
+        </div>
+    </main>
+
+    <section class="features">
+      <div class="feature">
+        <div class="icon">👩‍🏫</div>
+        <h3>Expert Teachers</h3>
+        <p>Native German speakers with years of experience</p>
+      </div>
+      <div class="feature">
+        <div class="icon">👥</div>
+        <h3>Small Classes</h3>
+        <p>Personalized attention in intimate learning groups.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📜</div>
+        <h3>Certified Results</h3>
+        <p>Preparation for official German certifications.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="scroll-indicator" onclick="scrollToNext()">▼</div>
+    </footer>
+
+    <script src="Index.js"></script>
+    <script>
+      const hamburger = document.getElementById('hamburgerMenu');
+      const navLinks  = document.getElementById('navLinks');
+
+      function openMenu() {
+        navLinks.classList.add('active');
+        hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Close navigation menu');
+        document.body.style.overflow = '';   /* don't lock scroll — panel is inline */
+      }
+
+      function closeMenu() {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+      }
+
+      function toggleMenu() {
+        hamburger.classList.contains('active') ? closeMenu() : openMenu();
+      }
+
+      /* Click & keyboard */
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+
+      /* Close when a nav link is tapped on mobile */
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 900) closeMenu();
+        });
+      });
+
+      /* Clean up if viewport grows past desktop breakpoint */
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 900) closeMenu();
+      });
+    </script>
+</body>
+</html>

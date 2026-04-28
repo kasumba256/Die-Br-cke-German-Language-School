@@ -1,3 +1,21 @@
+// Hamburger menu toggle for mobile
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger-menu');
+    const menu = document.getElementById('mobile-menu-list');
+    if (hamburger && menu) {
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('open');
+        });
+        // Optional: Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+                menu.classList.remove('active');
+                hamburger.classList.remove('open');
+            }
+        });
+    }
+});
 // main.js for Die Brücke German Language School
 // Advanced JavaScript: Navbar scroll effect, Enroll button animation, and smooth scroll
 document.addEventListener('DOMContentLoaded', function() {
