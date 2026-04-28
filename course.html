@@ -3,109 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>Die Brücke German Language School</title>
+    <title>Courses — Die Brücke German Language School</title>
     <link rel="stylesheet" href="course.css">
- 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-
 </head>
 <body>
 
     <nav>
         <div class="nav-content">
+
             <div class="logo-group">
-                <img src="./Images/Logo-white.png" alt="Die Brücke Logo" class="logo" />
+                <!--
+                    PART 1 FIX: logo now links to the index page.
+                    Update href to your exact index filename if different.
+                -->
+                <a href="./indexdie-brucke.html" class="logo-link" aria-label="Go to homepage">
+                    <img src="./Images/Logo-white.png" alt="Die Brücke Logo" class="logo" />
+                </a>
                 <span class="school-name">
                     Die Brücke
-                    <br>
                     <span class="school-sub">German School</span>
                 </span>
             </div>
-            <div class="nav-links">
-                <a href="./Index.html">Home</a>
-                <a href="./About.html">About</a>
+
+            <!-- ID added so JS can find it -->
+            <div class="nav-links" id="navLinks">
+                <a href="./indexdie-brucke.html">Home</a>
+                <a href="./about.html">About</a>
                 <a href="./course.html">Courses</a>
                 <a href="/contact.html">Contact</a>
             </div>
-            <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
+
+            <div class="nav-actions">
+                <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
+
+                <!-- Hamburger — was missing from this page -->
+                <div class="hamburger" id="hamburgerMenu"
+                     role="button"
+                     aria-label="Open navigation menu"
+                     aria-expanded="false"
+                     tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
         </div>
     </nav>
 
     <main>
         <h1>Our German Courses</h1>
-        <p>From complete beginner to advanced fluency, We have the perfect course to <br>
+        <p>From complete beginner to advanced fluency, we have the perfect course to
             match your goals and schedule.</p>
-        </p>
     </main>
 
     <section class="pricing-section">
-      <div class="pricing-cards">
-               <!-- Beginner -->
-           <div class="card">
-               <p class="level">A1 - A2</p>
-               <h2>Beginner German</h2>
-               <p class="desc">Perfect for complete beginners. Learn basic vocabulary, pronunciation, and everyday conversations.</p>
+        <div class="pricing-cards">
+
+            <!-- Beginner -->
+            <div class="card">
+                <p class="level">A1 - A2</p>
+                <h2>Beginner German</h2>
+                <p class="desc">Perfect for complete beginners. Learn basic vocabulary, pronunciation, and everyday conversations.</p>
                 <ul class="details">
-                  <li>🕓 12 weeks</li>
-                  <li>👥 4–8 students</li>
-                  <li>📅 Mon & Wed, 6:00–8:00 PM</li>
+                    <li>🕓 12 weeks</li>
+                    <li>👥 4–8 students</li>
+                    <li>📅 Mon & Wed, 6:00–8:00 PM</li>
                 </ul>
                 <ul class="features">
-                   <li>⭐ Basic grammar</li>
-                   <li>⭐ Everyday vocabulary</li>
-                   <li>⭐ Cultural introduction</li>
-                   <li>⭐ Interactive exercises</li>
-                 </ul>
-                 <p class="price">250,000shs</p>
-                 <button class="enroll">Enroll Now</button>
-            </div>
-        
-                    <!-- Intermediate -->
-             <div class="card popular">
-               <div class="badge">Most Popular</div>
-                  <p class="level">B1 - B2</p>
-                  <h2>Intermediate German</h2>
-                  <p class="desc">Build confidence in complex conversations and master intermediate grammar structures.</p>
-                 <ul class="details">
-                   <li>🕓 16 weeks</li>
-                   <li>👥 4–8 students</li>
-                   <li>📅 Tue & Thu, 6:00–8:00 PM</li>
-                 </ul>
-                 <ul class="features">
-                  <li>⭐ Complex grammar</li>
-                  <li>⭐ Business basics</li>
-                  <li>⭐ Media comprehension</li>
-                  <li>⭐ Conversation practice</li>
-                 </ul>
-                 <p class="price">350,000shs</p>
-                 <button class="enroll highlight">Enroll Now</button>
-              </div>
-
-                    <!-- Advanced -->
-               <div class="card">
-                 <p class="level">C1 - C2</p>
-                 <h2>Advanced German</h2>
-                 <p class="desc">Achieve near-native fluency and prepare for professional or academic challenges.</p>
-                 <ul class="details">
-                   <li>🕓 20 weeks</li>
-                   <li>👥 4–6 students</li>
-                   <li>📅 Flexible scheduling</li>
-                 </ul>
-                 <ul class="features">
-                  <li>⭐ Advanced grammar</li>
-                  <li>⭐ Academic writing</li>
-                  <li>⭐ Professional German</li>
-                  <li>⭐ Certification prep</li>
-                 </ul>
-                 <p class="price">550,000shs</p>
+                    <li>⭐ Basic grammar</li>
+                    <li>⭐ Everyday vocabulary</li>
+                    <li>⭐ Cultural introduction</li>
+                    <li>⭐ Interactive exercises</li>
+                </ul>
+                <p class="price">250,000shs</p>
                 <button class="enroll">Enroll Now</button>
-               </div>
+            </div>
 
-      </div>
+            <!-- Intermediate -->
+            <div class="card popular">
+                <div class="badge">Most Popular</div>
+                <p class="level">B1 - B2</p>
+                <h2>Intermediate German</h2>
+                <p class="desc">Build confidence in complex conversations and master intermediate grammar structures.</p>
+                <ul class="details">
+                    <li>🕓 16 weeks</li>
+                    <li>👥 4–8 students</li>
+                    <li>📅 Tue & Thu, 6:00–8:00 PM</li>
+                </ul>
+                <ul class="features">
+                    <li>⭐ Complex grammar</li>
+                    <li>⭐ Business basics</li>
+                    <li>⭐ Media comprehension</li>
+                    <li>⭐ Conversation practice</li>
+                </ul>
+                <p class="price">350,000shs</p>
+                <button class="enroll highlight">Enroll Now</button>
+            </div>
+
+            <!-- Advanced -->
+            <div class="card">
+                <p class="level">C1 - C2</p>
+                <h2>Advanced German</h2>
+                <p class="desc">Achieve near-native fluency and prepare for professional or academic challenges.</p>
+                <ul class="details">
+                    <li>🕓 20 weeks</li>
+                    <li>👥 4–6 students</li>
+                    <li>📅 Flexible scheduling</li>
+                </ul>
+                <ul class="features">
+                    <li>⭐ Advanced grammar</li>
+                    <li>⭐ Academic writing</li>
+                    <li>⭐ Professional German</li>
+                    <li>⭐ Certification prep</li>
+                </ul>
+                <p class="price">550,000shs</p>
+                <button class="enroll">Enroll Now</button>
+            </div>
+
+        </div>
     </section>
-       <script src="./course.js"></script>
+
+    <script src="./course.js"></script>
+    <script>
+        /* ── Hamburger menu ── */
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks  = document.getElementById('navLinks');
+
+        function openMenu() {
+            navLinks.classList.add('active');
+            hamburger.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            hamburger.setAttribute('aria-label', 'Close navigation menu');
+        }
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Open navigation menu');
+        }
+        function toggleMenu() {
+            hamburger.classList.contains('active') ? closeMenu() : openMenu();
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+        });
+
+        /* Close when a nav link is tapped on mobile */
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 900) closeMenu();
+            });
+        });
+
+        /* Clean up if viewport grows to desktop width */
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 900) closeMenu();
+        });
+    </script>
 </body>
 </html>

@@ -1,73 +1,145 @@
-body
-{
+/* contact.css — Die Brücke German Language School
+   Architecture: mobile-first base → min-width breakpoints up
+   ──────────────────────────────────────────────────────────── */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* ══════════════════════════════════════════════
+   BASE  (320px — all phones)
+══════════════════════════════════════════════ */
+body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', Arial, sans-serif;
     background: #0d0e10;
+    overflow-x: hidden;
+
+    /*
+     * FIX #7 (critical): .cta-section is position:fixed at the bottom.
+     * Without padding-bottom the fixed panel permanently covers page content.
+     * Value = approximate CTA panel height on mobile (~210px).
+     * Adjusted upward at larger breakpoints below.
+     */
+    padding-bottom: 210px;
 }
 
-nav
-{
+/* ─── NAV ─── */
+nav {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #000000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    padding: 1.2rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem 1.25rem;     /* FIX #1: was 1.2rem 0 — added horizontal padding */
     position: sticky;
     top: 0;
     z-index: 100;
 }
-.logo-group
-{
+
+.nav-content {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-    margin-right: 3.5rem;
-}
-.logo
-{
-    height: 52px;
+    justify-content: space-between;    /* logo left, actions right */
+    width: 100%;
+    max-width: 1200px;
+    position: relative;               /* anchor for mobile dropdown */
 }
 
-.school-name
-{
+/* ── Logo link (Part 1) ── */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo-link:focus-visible {
+    outline: 2px solid #e5a900;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.logo {
+    height: 44px;       /* slightly reduced on mobile; restored at 900px */
+    display: block;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+.school-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
+    font-size: 1.15rem;     /* mobile-scaled; restored at 900px */
     font-weight: 200;
     color: #d49d2a;
     letter-spacing: 0.01em;
     white-space: nowrap;
+    line-height: 1.3;
 }
-.school-sub 
-{
+
+.school-sub {
     display: block;
-    font-size: 0.85em;
+    font-size: 0.78em;
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 400;
     color: #ffffff;
     letter-spacing: 0.02em;
-    margin-top: -2px;
+    margin-top: -1px;
     margin-left: 2px;
 }
-.nav-content
-{
-    display: flex;
-    align-items: center;
-    gap: 3.5rem;
+
+/* Nav links — hidden on mobile by default */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Mobile: absolute dropdown below the nav bar */
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    background: #000000;
+    border-top: 1px solid rgba(229, 169, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
 }
-.nav-links
-{
+
+.nav-links.active {
     display: flex;
-    gap: 2.7rem;
+    max-height: 360px;
+    opacity: 1;
 }
-.nav-links a
-{
+
+.nav-links a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
     color: #e9e9e9;
-    transition: color 0.3s ease;
+    padding: 1rem 1.5rem;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 0.2s, background 0.2s;
+    position: relative;    /* FIX #13: needed for ::after underline positioning */
+}
+
+.nav-links a:last-child {
+    border-bottom: none;
 }
 
 .nav-links a::after {
@@ -75,114 +147,163 @@ nav
     display: block;
     width: 0;
     height: 2px;
-    background:#e5a900 ;
+    background: #e5a900;
     transition: width 0.3s;
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: 0;
 }
 
-.nav-links a:hover
-{
+.nav-links a:hover {
     color: #e5a900;
+    background: rgba(229, 169, 0, 0.05);
 }
-.nav-links a:hover::after 
-{
+
+.nav-links a:hover::after {
     width: 100%;
 }
 
-.enroll-btn 
-{
-    background: linear-gradient(90deg,  #e5a900 0%, #e7ae0f  100%);
+/* Nav actions wrapper */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Enroll button — hidden on small screens; margin-left only restored at 900px */
+.enroll-btn {
+    display: none;      /* shown from 480px */
+    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f 100%);
     color: #fff;
     border: none;
     border-radius: 24px;
-    padding: 0.7rem 1.7rem;
-    font-size: 1.1rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-left: 3.5rem;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,183,221,0.08);
+    box-shadow: 0 2px 8px rgba(0, 183, 221, 0.08);
     transition: background 0.2s, transform 0.2s;
     outline: none;
+    white-space: nowrap;
 }
+
 .enroll-btn:hover {
-    background: linear-gradient(90deg,  #e5a900 0%, #e7ae0f  100%);
+    background: linear-gradient(90deg, #e7ae0f 0%, #e5a900 100%);
     transform: translateY(-2px) scale(1.04);
 }
 
+/* ─── HAMBURGER ─── */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+    background: none;
+    border: 1px solid rgba(229, 169, 0, 0.35);
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
 
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #e5a900;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
 
-/* ------------------ CONTACT SECTION ------------------ */
-.section-headline 
-{
+/* Animated X state */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── HEADLINE ─── */
+.section-headline {
     text-align: center;
-    margin-top: 40px;
-     color: #f5f5f5;
-    
+    margin-top: 2.5rem;     /* FIX #14: was 40px — more breathing room on mobile */
+    padding: 0 1.25rem;
+    color: #f5f5f5;
 }
 
-.section-headline h1 
-{
-    font-size: 42px;
+.section-headline h1 {
+    font-size: clamp(1.6rem, 6vw, 2.625rem);   /* FIX #5: was fixed 42px */
     font-weight: 700;
-    
+    margin: 0 0 0.5rem;
+    line-height: 1.2;
 }
 
-.section-headline p 
-{
-    font-size: 16px;
+.section-headline p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     margin-top: 8px;
-     color:#e9e9e9 ;
+    color: #e9e9e9;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+    /* FIX #7: <br> removed from HTML — let text wrap naturally on mobile */
 }
 
-.contact-wrapper 
-{
+/* ─── CONTACT CARDS ─── */
+.contact-wrapper {
     display: flex;
     justify-content: center;
     gap: 25px;
-    margin-top: 45px;
-    padding: 0 20px;
+    margin-top: 2.5rem;
+    padding: 0 1.25rem;
     flex-wrap: wrap;
 }
 
-.contact-card 
-{
-    width: 300px;
+.contact-card {
+    /* FIX #6 + #12: was width:300px fixed — overflows 320px viewport.
+       Now fluid with a max-width cap. */
+    width: 100%;
+    max-width: 300px;
     background: #fff;
     border-radius: 14px;
     padding: 35px 25px;
     text-align: center;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
-.contact-card img.icon 
-{
+.contact-card img.icon {
     width: 55px;
     height: 55px;
     margin-bottom: 20px;
 }
 
-.contact-card h3 
-{
+.contact-card h3 {
     font-size: 20px;
     margin-bottom: 10px;
+    color: #1a1a2e;
 }
 
-.contact-card p 
-{
+.contact-card p {
     margin: 4px 0;
     color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
 }
 
-.contact-card .small 
-{
+.contact-card .small {
     font-size: 14px;
     color: #777;
 }
 
-.contact-card button 
-{
+.contact-card button {
     margin-top: 22px;
     padding: 12px 22px;
     width: 100%;
@@ -190,20 +311,25 @@ nav
     border: 1px solid #ddd;
     background: #fafafa;
     cursor: pointer;
-    transition: 0.2s;
+    transition: background 0.2s;
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
-.contact-card button:hover 
-{
+.contact-card button:hover {
     background: #eee;
 }
 
-/* ------------------ CTA SECTION ------------------ */
-.cta-section 
-{
+/* ─── CTA SECTION (position:fixed) ─── */
+/*
+ * FIX #7: The fixed CTA panel permanently covers page content.
+ * Fix: add matching padding-bottom to body (done above in body{}).
+ * The panel itself is made leaner on mobile with smaller padding and font.
+ */
+.cta-section {
     background: #111822;
     color: #fff;
-    padding: 60px 20px;
+    padding: 28px 20px 24px;   /* FIX #8: was 60px 20px — too tall on mobile */
     text-align: center;
     border-radius: 20px 20px 0 0;
     position: fixed;
@@ -211,130 +337,238 @@ nav
     left: 0;
     right: 0;
     z-index: 999;
-    box-shadow: 0 -4px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.15);
     max-width: 100%;
     animation: slideUp 0.4s ease-out;
 }
 
-@keyframes slideUp 
-{
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+@keyframes slideUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to   { transform: translateY(0);    opacity: 1; }
 }
 
-.cta-section h2 
-{
-    font-size: 32px;
+.cta-section h2 {
+    font-size: clamp(1.15rem, 4vw, 2rem);   /* FIX #9: was fixed 32px */
     font-weight: 700;
-    margin: 0 0 8px 0;
+    margin: 0 0 6px;
+    line-height: 1.25;
 }
 
 .cta-section p {
-    font-size: 16px;
-    margin: 0 0 20px 0;
+    font-size: clamp(0.82rem, 2.2vw, 1rem);
+    margin: 0 0 16px;
     color: #d4d7dd;
+    line-height: 1.55;
+    /* FIX: <br> removed from HTML — let text wrap naturally */
 }
 
-.cta-buttons 
-{
-    margin-top: 0;
+.cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 12px;
     flex-wrap: wrap;
 }
 
-.cta-buttons .btn 
-{
-  -webkit-appearance: none;
-  appearance: none;
-  border: none;
-  padding: 0.85rem 1.25rem;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  justify-content: center;
-  box-shadow: 0 8px 20px rgba(16, 43, 77, 0.06);
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 160ms ease;
-  user-select:none;
+.cta-buttons .btn {
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    padding: 0.75rem 1.1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(16, 43, 77, 0.06);
+    transition: transform 180ms ease, box-shadow 180ms ease, opacity 160ms ease;
+    user-select: none;
 }
 
 /* Primary (filled) */
-.cta-buttons .btn.primary 
-{
-  background: linear-gradient(90deg,#e5a900 0%, #e7ae0f 100%);
-  color: #fff;
+.cta-buttons .btn.primary {
+    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f 100%);
+    color: #fff;
 }
 
 /* Secondary (outline/light) */
 .cta-buttons .btn.secondary {
-  background: #fff;
-  color: #0f1a2c;
-  border: 1px solid #e6e6e6;
+    background: #fff;
+    color: #0f1a2c;
+    border: 1px solid #e6e6e6;
 }
 
-/* Hover / active / focus */
 .cta-buttons .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(16, 43, 77, 0.10);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(16, 43, 77, 0.10);
 }
 
 .cta-buttons .btn:active {
-  transform: translateY(-1px);
-  opacity: 0.98;
+    transform: translateY(-1px);
+    opacity: 0.98;
 }
 
 .cta-buttons .btn:focus {
-  outline: 3px solid rgba(0, 180, 216, 0.15);
-  outline-offset: 3px;
-  box-shadow: 0 8px 28px rgba(0, 180, 216, 0.06);
+    outline: 3px solid rgba(0, 180, 216, 0.15);
+    outline-offset: 3px;
+    box-shadow: 0 8px 28px rgba(0, 180, 216, 0.06);
 }
 
-/* Optional icon styling inside buttons */
 .cta-buttons .btn .icon {
-  display: inline-block;
-  font-size: 1.05rem;
-  line-height: 1;
-  margin-left: -0.2rem;
+    display: inline-block;
+    font-size: 1.05rem;
+    line-height: 1;
+    margin-left: -0.2rem;
 }
 
-/* Responsive: full-width stacked buttons on small screens */
-@media (max-width: 600px) 
-{
-  .cta-buttons {
-    flex-direction: column;
-    gap: 12px;
-  }
-  .cta-buttons .btn {
-    width: 100%;
-    padding: 0.95rem 1rem;
-  }
-}
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 480px  (large phones)
+══════════════════════════════════════════════ */
+@media (min-width: 480px) {
+    nav {
+        padding: 1rem 1.75rem;
+    }
 
-/* Small tweak for medium screens */
-@media (min-width: 601px) and (max-width: 900px) 
-{
-  .cta-buttons .btn {
-    padding: 0.9rem 1.15rem;
-  }
-}
+    .enroll-btn {
+        display: block;    /* show enroll button from here */
+    }
 
-/* Responsive */
-@media (max-width: 768px) 
-{
-    .section-headline h1 
-    {
-        font-size: 32px;
+    .section-headline {
+        margin-top: 3rem;
+        padding: 0 1.5rem;
+    }
+
+    .contact-wrapper {
+        padding: 0 1.5rem;
+        margin-top: 3rem;
+    }
+
+    /* CTA slightly more spacious */
+    .cta-section {
+        padding: 32px 24px 28px;
+    }
+
+    /* Compensate body padding for slightly taller CTA */
+    body {
+        padding-bottom: 230px;
     }
 }
 
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 600px  (phablets — CTA buttons inline)
+══════════════════════════════════════════════ */
+@media (min-width: 600px) {
+    .cta-buttons {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .cta-buttons .btn {
+        padding: 0.85rem 1.25rem;
+        font-size: 1rem;
+        width: auto;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 900px  (tablet landscape / desktop nav)
+══════════════════════════════════════════════ */
+@media (min-width: 900px) {
+    nav {
+        padding: 1.2rem 2rem;
+    }
+
+    /* Show desktop nav links inline */
+    .nav-links {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+        gap: 2.7rem;
+    }
+
+    .nav-links a {
+        padding: 0;
+        border-bottom: none;
+        font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+        background: none;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Restore original desktop nav sizing */
+    .logo {
+        height: 52px;
+    }
+
+    .logo-group {
+        gap: 1.2rem;
+        margin-right: 3.5rem;
+    }
+
+    .school-name {
+        font-size: 1.35rem;
+    }
+
+    .enroll-btn {
+        display: block;
+        margin-left: 3.5rem;
+        padding: 0.7rem 1.7rem;
+        font-size: 1.1rem;
+    }
+
+    /* Headline original desktop sizing */
+    .section-headline {
+        margin-top: 40px;
+        padding: 0;
+    }
+
+    .section-headline h1 {
+        font-size: 42px;
+    }
+
+    /* CTA panel — original desktop padding and font restored */
+    .cta-section {
+        padding: 60px 20px;
+    }
+
+    .cta-section h2 {
+        font-size: 32px;
+    }
+
+    .cta-section p {
+        font-size: 16px;
+        margin: 0 0 20px;
+    }
+
+    /* Larger body padding-bottom to match taller desktop CTA panel */
+    body {
+        padding-bottom: 280px;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 1025px  (wide desktop)
+══════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+    nav {
+        padding: 1.2rem 3rem;
+    }
+
+    body {
+        padding-bottom: 300px;
+    }
+}

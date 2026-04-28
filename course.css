@@ -1,74 +1,138 @@
-body
-{
+/* course.css — Die Brücke German Language School
+   Architecture: mobile-first base → min-width breakpoints up
+   ─────────────────────────────────────────────────────────── */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;   /* FIX #9: prevents padding/border from causing overflow */
+}
+
+/* ══════════════════════════════════════════════
+   BASE  (320px — all phones)
+══════════════════════════════════════════════ */
+body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', Arial, sans-serif;
     background: #0d0e10;
+    overflow-x: hidden;   /* FIX #10: prevents horizontal scroll */
 }
 
-nav
-{
+/* ─── NAV ─── */
+nav {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #000000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    padding: 1.2rem 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1rem 1.25rem;   /* FIX #1: was 1.2rem 0 — added horizontal padding */
     position: sticky;
     top: 0;
     z-index: 100;
 }
-.logo-group
-{
+
+.nav-content {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-    margin-right: 3.5rem;
-}
-.logo
-{
-    height: 52px;
-   
+    justify-content: space-between;   /* logo left, actions right */
+    width: 100%;
+    max-width: 1200px;
+    position: relative;              /* anchor for the mobile dropdown */
 }
 
-.school-name
-{
+/* ── Logo link (Part 1) ── */
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo-link:focus-visible {
+    outline: 2px solid #e5a900;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.logo {
+    height: 44px;      /* slightly reduced on mobile; restored at 900px */
+    display: block;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+}
+
+.school-name {
     font-family: 'Playfair Display', serif;
-    font-size: 1.35rem;
+    font-size: 1.15rem;    /* scaled for mobile; restored at 900px */
     font-weight: 200;
     color: #d49d2a;
     letter-spacing: 0.01em;
     white-space: nowrap;
+    line-height: 1.3;
 }
-.school-sub 
-{
+
+.school-sub {
     display: block;
-    font-size: 0.85em;
+    font-size: 0.78em;
     font-family: 'Inter', Arial, sans-serif;
     font-weight: 400;
     color: #ffffff;
     letter-spacing: 0.02em;
-    margin-top: -2px;
+    margin-top: -1px;
     margin-left: 2px;
 }
-.nav-content
-{
-    display: flex;
-    align-items: center;
-    gap: 3.5rem;
+
+/* Nav links — FIX #3: hidden on mobile by default */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* Mobile: absolute dropdown panel below the nav bar */
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    background: #000000;
+    border-top: 1px solid rgba(229, 169, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+    /* Smooth slide-down animation */
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
 }
-.nav-links
-{
+
+.nav-links.active {
     display: flex;
-    gap: 2.7rem;
+    max-height: 360px;
+    opacity: 1;
 }
-.nav-links a
-{
+
+.nav-links a {
     text-decoration: none;
     font-size: 1rem;
     font-weight: 500;
     color: #e9e9e9;
-    transition: color 0.3s ease;
+    padding: 1rem 1.5rem;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: color 0.2s, background 0.2s;
+    position: relative;   /* FIX #15: needed for ::after underline positioning */
+}
+
+.nav-links a:last-child {
+    border-bottom: none;
 }
 
 .nav-links a::after {
@@ -76,162 +140,372 @@ nav
     display: block;
     width: 0;
     height: 2px;
-    background:#e5a900 ;
+    background: #e5a900;
     transition: width 0.3s;
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: 0;
 }
 
-.nav-links a:hover
-{
-    color:#e5a900;
+.nav-links a:hover {
+    color: #e5a900;
+    background: rgba(229, 169, 0, 0.05);
 }
-.nav-links a:hover::after 
-{
+
+.nav-links a:hover::after {
     width: 100%;
 }
 
-.enroll-btn 
-{
-    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f  100%);
+/* Nav actions wrapper */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Enroll button — FIX #4: hidden on small screens; margin-left only on desktop */
+.enroll-btn {
+    display: none;    /* shown from 480px */
+    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f 100%);
     color: #fff;
     border: none;
     border-radius: 24px;
-    padding: 0.7rem 1.7rem;
-    font-size: 1.1rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    margin-left: 3.5rem;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0,183,221,0.08);
+    box-shadow: 0 2px 8px rgba(0, 183, 221, 0.08);
     transition: background 0.2s, transform 0.2s;
     outline: none;
+    white-space: nowrap;
 }
+
 .enroll-btn:hover {
-    background: linear-gradient(90deg, #e5a900 0%, #e7ae0f  100%);
+    background: linear-gradient(90deg, #e7ae0f 0%, #e5a900 100%);
     transform: translateY(-2px) scale(1.04);
 }
 
-main
- {
+/* ─── HAMBURGER ─── */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+    background: none;
+    border: 1px solid rgba(229, 169, 0, 0.35);
+    border-radius: 6px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #e5a900;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.25s ease;
+    transform-origin: center;
+}
+
+/* Animated X state */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── MAIN / HERO ─── */
+main {
     text-align: center;
-    padding: 4rem 1rem 2rem 1rem;
-    color:#e9e9e9 ;
- }
-
-main h1
-{
-  text-align: center;
-  font-size: 2rem;
-  margin-top: 40px;
-  font-weight: 600;
+    padding: 2rem 1.25rem 1.5rem;
+    color: #e9e9e9;
 }
 
-.pricing-section 
-{
-  max-width: 1100px;
-  margin: 50px auto;
-  padding: 20px;
-  
+main h1 {
+    text-align: center;
+    font-size: clamp(1.4rem, 5vw, 2rem);   /* FIX #5: was fixed 2rem */
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #e9e9e9;
 }
-.pricing-cards 
-{
-  display: flex;
-  /*flex-wrap: wrap;*/
-  justify-content: center;
-  gap: 30px;
+
+main p {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    color: #c8c8c8;
+    max-width: 580px;
+    margin: 0 auto;
+    line-height: 1.7;
 }
-.card 
-{
-  background: #fff;
-  border: 1px solid #e3e6eb;
-  border-radius: 12px;
-  padding: 30px;
-  width: 320px;
-  position: relative;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+
+/* ─── PRICING SECTION ─── */
+.pricing-section {
+    max-width: 1100px;
+    margin: 2rem auto 3rem;
+    padding: 0 1.25rem;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-direction: column;   /* FIX #6 mobile-first: stack on phones */
+    align-items: center;
+    gap: 2rem;
+    /* flex-wrap was commented out — now irrelevant; handled by breakpoints */
+}
+
+/* ─── CARD ─── */
+.card {
+    background: #fff;
+    border: 1px solid #e3e6eb;
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;              /* FIX #7 + #14: fluid instead of fixed 320px */
+    max-width: 360px;         /* keeps cards from being too wide on tablets */
+    position: relative;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    overflow: visible;        /* FIX #11: ensure .badge isn't clipped */
 }
 
 .card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .card.popular {
-  border: 2px solid #d47f2a;
-  background: #fff8f0;
+    border: 2px solid #d47f2a;
+    background: #fff8f0;
 }
 
 .badge {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #d47f2a;
-  color: #fff;
-  font-weight: 600;
-  font-size: 0.85rem;
-  padding: 5px 12px;
-  border-radius: 20px;
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d47f2a;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
 
 .level {
-  color: #e87a00;
-  font-weight: 600;
-  margin-bottom: 10px;
+    color: #e87a00;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin: 0.5rem 0 0.75rem;
+    color: #1a1a2e;
 }
 
 .desc {
-  color: #555;
-  font-size: 0.95rem;
-  margin-bottom: 20px;
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
 }
 
 .details,
 .features {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0;
-  text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    text-align: left;
 }
 
+.details li,
 .features li {
-  margin: 5px 0;
-  font-size: 0.95rem;
+    margin: 6px 0;
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.5;
 }
 
 .price {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin: 20px 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 20px 0;
+    color: #1a1a2e;
 }
 
 .enroll {
-  background: #1d2430;
-  color: #fff;
-  border: none;
-  padding: 12px 30px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
+    background: #1d2430;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 100%;
 }
 
 .enroll:hover {
-  background: #2d3a50;
+    background: #2d3a50;
 }
 
 .highlight {
-  background: linear-gradient(90deg, #e87a00, #d49d2a);
+    background: linear-gradient(90deg, #e87a00, #d49d2a);
 }
 
 .highlight:hover {
-  background: linear-gradient(90deg, #d47f2a, #b37400);
+    background: linear-gradient(90deg, #d47f2a, #b37400);
 }
 
-@media (max-width: 960px) {
-  .pricing-cards {
-    flex-direction: column;
-    align-items: center;
-  }
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 480px  (large phones)
+══════════════════════════════════════════════ */
+@media (min-width: 480px) {
+    nav {
+        padding: 1rem 1.75rem;
+    }
+
+    .enroll-btn {
+        display: block;    /* show enroll button on larger phones */
+    }
+
+    main {
+        padding: 2.5rem 1.5rem 1.5rem;
+    }
+
+    main h1 {
+        margin-top: 2rem;
+    }
+
+    .pricing-section {
+        padding: 0 1.5rem;
+        margin-top: 2.5rem;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 640px  (phablets)
+══════════════════════════════════════════════ */
+@media (min-width: 640px) {
+    /* Two-column card layout on tablet —
+       FIX #6: was no intermediate state between full-row and full-stack */
+    .pricing-cards {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+
+    .card {
+        width: calc(50% - 1rem);
+        max-width: 340px;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 900px  (tablet landscape / desktop nav)
+══════════════════════════════════════════════ */
+@media (min-width: 900px) {
+    nav {
+        padding: 1.2rem 2rem;
+    }
+
+    /* Show desktop nav links inline */
+    .nav-links {
+        display: flex !important;   /* override mobile hidden */
+        flex-direction: row;
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+        max-height: none;
+        opacity: 1;
+        overflow: visible;
+        gap: 2.7rem;
+    }
+
+    .nav-links a {
+        padding: 0;
+        border-bottom: none;
+        font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+        background: none;
+    }
+
+    /* Hide hamburger on desktop */
+    .hamburger {
+        display: none;
+    }
+
+    /* Restore original desktop sizing */
+    .logo {
+        height: 52px;
+    }
+
+    .logo-group {
+        gap: 1.2rem;
+        margin-right: 3.5rem;
+    }
+
+    .school-name {
+        font-size: 1.35rem;
+    }
+
+    .enroll-btn {
+        display: block;
+        margin-left: 3.5rem;   /* original desktop spacing restored here only */
+        padding: 0.7rem 1.7rem;
+        font-size: 1.1rem;
+    }
+
+    main {
+        padding: 4rem 1rem 2rem;
+    }
+
+    main h1 {
+        font-size: 2rem;
+        margin-top: 40px;
+    }
+
+    .pricing-section {
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    /* Three-column card layout on desktop */
+    .pricing-cards {
+        flex-wrap: nowrap;
+        gap: 30px;
+    }
+
+    .card {
+        width: 320px;
+        max-width: none;
+    }
+}
+
+/* ══════════════════════════════════════════════
+   BREAKPOINT — 1025px  (wide desktop)
+══════════════════════════════════════════════ */
+@media (min-width: 1025px) {
+    nav {
+        padding: 1.2rem 3rem;
+    }
+
+    .pricing-section {
+        padding: 20px;
+    }
 }

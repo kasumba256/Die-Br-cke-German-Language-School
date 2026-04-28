@@ -3,95 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>>Die Brücke German Language School</title>
-     <link rel="stylesheet" href="contact.css">
+    <title>Contact — Die Brücke German Language School</title>
+    <link rel="stylesheet" href="contact.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <nav>
         <div class="nav-content">
+
             <div class="logo-group">
-                <img src="./Images/Logo-white.png" alt="Die Brücke Logo" class="logo" />
+                <!--
+                    PART 1 FIX: logo now links to the index page.
+                    Update href to your exact index filename if different.
+                -->
+                <a href="./Index.html" class="logo-link" aria-label="Go to homepage">
+                    <img src="./Images/Logo-white.png" alt="Die Brücke Logo" class="logo" />
+                </a>
                 <span class="school-name">
                     Die Brücke
-                    <br>
                     <span class="school-sub">German School</span>
                 </span>
             </div>
-            <div class="nav-links">
-                <a href="./Index.html">Home</a>
-                <a href="./About.html">About</a>
+
+            <!-- ID added so JS can find it -->
+            <div class="nav-links" id="navLinks">
+                <a href="./indexdie-brucke.html">Home</a>
+                <a href="./about.html">About</a>
                 <a href="./course.html">Courses</a>
                 <a href="./contact.html">Contact</a>
             </div>
-            <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
+
+            <div class="nav-actions">
+                <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
+
+                <!-- Hamburger — was missing from this page entirely -->
+                <div class="hamburger" id="hamburgerMenu"
+                     role="button"
+                     aria-label="Open navigation menu"
+                     aria-expanded="false"
+                     tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
         </div>
     </nav>
 
-    <!-- ---------------- HEADLINE ---------------- -->
-<div class="section-headline">
-    <h1>Start Your Journey Today</h1>
-    <p>Ready to bridge cultures through language? Get in touch with our friendly team<br>
-       and take the first step toward German fluency.</p>
-</div>
-
-<!-- ---------------- CONTACT CARDS ---------------- -->
-<div class="contact-wrapper">
-
-    <!-- Visit Us -->
-    <div class="contact-card">
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location Icon">
-        <h3>Visit Our School</h3>
-        <p><strong>Mabirizi Complex</strong></p>
-        <p>Kampala Road</p>
-        <p>Uganda</p>
-        <button onclick="alert('Opening map...')">Get Directions</button>
+    <!-- HEADLINE -->
+    <div class="section-headline">
+        <h1>Start Your Journey Today</h1>
+        <p>Ready to bridge cultures through language? Get in touch with our friendly team
+           and take the first step toward German fluency.</p>
     </div>
 
-    <!-- Call Us -->
-    <div class="contact-card">
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon">
-        <h3>Call Us</h3>
-        <p><strong>+256 753 916 865</strong></p>
-        <p><strong>+256 769 103 918</strong></p>
-        <p class="small">Mon–Fri: 9:00–18:00</p>
-        <p class="small">Sat: 10:00–14:00</p>
-        <button onclick="window.location.href='tel:+493012345678'">Call Now</button>
+    <!-- CONTACT CARDS -->
+    <div class="contact-wrapper">
+
+        <!-- Visit Us -->
+        <div class="contact-card">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Location Icon">
+            <h3>Visit Our School</h3>
+            <p><strong>Mabirizi Complex</strong></p>
+            <p>Kampala Road</p>
+            <p>Uganda</p>
+            <button onclick="alert('Opening map...')">Get Directions</button>
+        </div>
+
+        <!-- Call Us -->
+        <div class="contact-card">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon">
+            <h3>Call Us</h3>
+            <p><strong>+256 753 916 865</strong></p>
+            <p><strong>+256 769 103 918</strong></p>
+            <p class="small">Mon–Fri: 9:00–18:00</p>
+            <p class="small">Sat: 10:00–14:00</p>
+            <button onclick="window.location.href='tel:+256753916865'">Call Now</button>
+        </div>
+
+        <!-- Email Us -->
+        <div class="contact-card">
+            <img class="icon" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon">
+            <h3>Email Us</h3>
+            <p><strong>diebruckegermanlanguageschool@gmail.com</strong></p>
+            <p class="small">Quick response</p>
+            <p class="small">within 24 hours</p>
+            <button onclick="window.location.href='mailto:diebruckegermanlanguageschool@gmail.com'">Send Email</button>
+        </div>
+
     </div>
 
-    <!-- Email Us -->
-    <div class="contact-card">
-        <img class="icon" src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email Icon">
-        <h3>Email Us</h3>
-        <p><strong>diebruckegermanlanguageschool<br>@gmail.com</strong></p>
-        <p class="small">Quick response</p>
-        <p class="small">within 24 hours</p>
-        <button onclick="window.location.href='mailto:info@diebrucke.de'">Send Email</button>
+    <!-- CTA SECTION (position:fixed — body has padding-bottom in CSS to compensate) -->
+    <div class="cta-section">
+        <h2>Ready to Build Your Bridge to German?</h2>
+        <p>Join hundreds of successful students who have achieved their German language
+           goals with us. Your journey to fluency starts with a single step.</p>
+        <div class="cta-buttons">
+            <button class="btn primary">Book Free Consultation</button>
+            <button class="btn secondary">Schedule Placement Test</button>
+        </div>
     </div>
 
-</div>
+    <script>
+        /* ── Hamburger menu ── */
+        const hamburger = document.getElementById('hamburgerMenu');
+        const navLinks  = document.getElementById('navLinks');
 
-<!-- ---------------- CTA SECTION ---------------- -->
-<div class="cta-section">
-    <h2>Ready to Build Your Bridge to German?</h2>
-    <p>Join hundreds of successful students who have achieved their German language<br>
-       goals with us. Your journey to fluency starts with a single step.</p>
+        function openMenu() {
+            navLinks.classList.add('active');
+            hamburger.classList.add('active');
+            hamburger.setAttribute('aria-expanded', 'true');
+            hamburger.setAttribute('aria-label', 'Close navigation menu');
+        }
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.setAttribute('aria-label', 'Open navigation menu');
+        }
+        function toggleMenu() {
+            hamburger.classList.contains('active') ? closeMenu() : openMenu();
+        }
 
-    <div class="cta-buttons">
-        <button class="btn primary">Book Free Consultation</button>
-        <button class="btn secondary">Schedule Placement Test</button>
-    </div>
-</div>
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleMenu(); }
+        });
 
-<script>
-// Add your JavaScript logic here if needed
-console.log("Landing page loaded");
-</script>
+        /* Close when a nav link is tapped on mobile */
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 900) closeMenu();
+            });
+        });
 
+        /* Clean up on resize to desktop */
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 900) closeMenu();
+        });
 
-
-    
+        console.log("Contact page loaded");
+    </script>
 </body>
 </html>
