@@ -6,152 +6,172 @@
     <title>About - Die Brücke German Language School</title>
     <meta name="description" content="Learn more about Die Brücke German Language School, our mission, values, and the team dedicated to helping you master the German language." />
     <meta name="author" content="Die Brücke German Language School" />
-    <link rel="stylesheet" href="About.css">
+    <link rel="stylesheet" href="./about.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body> 
+<body>
 
     <nav>
         <div class="nav-content">
+
             <div class="logo-group">
                 <img src="./Images/Logo-white.png" alt="Die Brücke Logo" class="logo" />
                 <span class="school-name">
                     Die Brücke
-                    <br>
                     <span class="school-sub">German School</span>
                 </span>
             </div>
-            <div class="nav-links">
-                <a href="Index.html">Home</a>
-                <a href="About.html">About</a>
+
+            <!-- ID added so JS can target it; was class-only before -->
+            <div class="nav-links" id="navLinks">
+                <a href="./indexdie-brucke.html">Home</a>
+                <a href="./about.html">About</a>
                 <a href="./course.html">Courses</a>
                 <a href="Contact.html">Contact</a>
             </div>
-            <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
+
+            <div class="nav-actions">
+                <button class="enroll-btn" id="enrollBtn">Enroll Now</button>
+
+                <!-- Hamburger — was missing entirely from About page -->
+                <div class="hamburger" id="hamburgerMenu"
+                     role="button"
+                     aria-label="Open navigation menu"
+                     aria-expanded="false"
+                     tabindex="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
         </div>
     </nav>
 
     <main>
         <h1>Why you choose Die Brücke?</h1>
         <p>More than a language school, we're your gateway to German culture, Career opportunities, and lifelong connections</p>
-         
+
         <section class="journey-section">
             <div class="journey-container">
                 <div class="journey-image">
-                   <img src="./Images/students- class.jpg"  alt="German language class"> 
-                   <div class="stats-box">
-                     <h2>450+</h2>
-                      <p>Successful Students</p>
+                    <img src="./Images/students- class.jpg" alt="German language class">
+                    <div class="stats-box">
+                        <h2>450+</h2>
+                        <p>Successful Students</p>
                     </div>
                 </div>
 
                 <div class="journey-content">
                     <h2>Your German Journey Starts Here</h2>
                     <p>
-                        At Die Brücke, we believe language learning is about more than 
-                        vocabulary
-                        and grammar. It's about opening doors to new opportunities, making meaningful
+                        At Die Brücke, we believe language learning is about more than
+                        vocabulary and grammar. It's about opening doors to new opportunities, making meaningful
                         connections, and discovering the rich tapestry of German-speaking cultures.
-                     </p>
+                    </p>
                     <ul>
                         <li>Small class sizes (max 8 students) for personalized attention</li>
                         <li>Flexible scheduling including evening and weekend options</li>
                         <li>Cultural immersion activities and events</li>
-                        <li>Preparation for official certifications </li>
+                        <li>Preparation for official certifications</li>
                     </ul>
-                    <!-- CTA Button -->
-                     <a href="#" class="cta-btn" id="openPopup">Join Now</a>
+                    <a href="#" class="cta-btn" id="openPopup">Join Now</a>
                 </div>
-                
             </div>
         </section>
 
-          <!-- Popup Form -->
+        <!-- Popup Form -->
         <div class="popup-overlay" id="popupForm">
-          <div class="popup-box">
-            <span class="close-btn" id="closePopup">&times;</span>
-              <h2>Join Our German Classes</h2>
-                <p>Fill out the form below and we’ll get in touch with you soon.</p>
+            <div class="popup-box">
+                <span class="close-btn" id="closePopup">&times;</span>
+                <h2>Join Our German Classes</h2>
+                <p>Fill out the form below and we'll get in touch with you soon.</p>
 
-         <!-- ✅ Formspree Form  https://formspree.io/  https://formspree.io/f/mnqkyjvd    -->
+                <form action="https://formspree.io/f/mnqkyjvd" method="POST">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required>
 
-           <form action="https://formspree.io/f/mnqkyjvd" method="POST">
-             <label for="name">Full Name</label>
-             <input type="text" id="name" name="name" placeholder="Your name" required>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
 
-             <label for="email">Email Address</label>
-             <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+256 700 000 000" required>
 
-             <label for="phone">Phone Number</label>
-             <input type="tel" id="phone" name="phone" placeholder="+256 700 000 000" required>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
 
-              <button type="submit" class="submit-btn">Submit</button>
-            </form>
-
-          <div id="form-success" class="success-e">
-           ✅ Thank you! Your message has been sent successfully.
-          </div>
-        </div>
-  </div>
-
-
-    
-      
-
-          <section class="features">
-           <div class="feature-box">
-             <div class="icon">
-             <span>❤️</span>
-           </div>
-          <h3>Passionate Teaching</h3>
-           <p>Our teachers are not just educators – they're cultural ambassadors who bring German language and culture to life.</p>
-          </div>
-
-         <div class="feature-box">
-          <div class="icon">
-           <span>🌐</span>
-           </div>
-         <h3>Cultural Bridge</h3>
-         <p>We don't just teach grammar – we build bridges between cultures, fostering understanding and connection.</p>
+                <div id="form-success" class="success-e">
+                    ✅ Thank you! Your message has been sent successfully.
+                </div>
+            </div>
         </div>
 
-         <div class="feature-box">
-         <div class="icon">
-         <span>🏅</span>
-         </div>
-         <h3>Proven Excellence</h3>
-         <p>Over 4 years of helping students achieve their German language goals, from basic conversation to business fluency.</p>
-        </div>
+        <section class="features">
+            <div class="feature-box">
+                <div class="icon"><span>❤️</span></div>
+                <h3>Passionate Teaching</h3>
+                <p>Our teachers are not just educators – they're cultural ambassadors who bring German language and culture to life.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><span>🌐</span></div>
+                <h3>Cultural Bridge</h3>
+                <p>We don't just teach grammar – we build bridges between cultures, fostering understanding and connection.</p>
+            </div>
+            <div class="feature-box">
+                <div class="icon"><span>🏅</span></div>
+                <h3>Proven Excellence</h3>
+                <p>Over 4 years of helping students achieve their German language goals, from basic conversation to business fluency.</p>
+            </div>
         </section>
     </main>
 
-    <!--
-    <section class="pre-footer">
-     
-        
-       <i class="fa-solid fa-heart" aria-hidden="true"></i>
-        <h2>passionate Teaching</h2>
-        <p>Our Teachers are not just educators, they're cultural ambassadors who bring German language culture to life.</p>
-
-         <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
-         <h2>cultural Bridge</h2>
-         <p>We don't just teach grammar, We build bridges between cultures, fostering understanding  and connections</p>
-
-         <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-         <h2>Proven Excellence</h2>
-         <p>Over 5 years of helping students achieve their German language goals, from basic Conversation to business fluency.</p>
-    </section>
-      -->   
-         
-
-    
-
     <script src="About.js"></script>
+   <script>
+      const hamburger = document.getElementById('hamburgerMenu');
+      const navLinks  = document.getElementById('navLinks');
 
+      function openMenu() {
+        navLinks.classList.add('active');
+        hamburger.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Close navigation menu');
+        document.body.style.overflow = '';   /* don't lock scroll — panel is inline */
+      }
 
-    
+      function closeMenu() {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+      }
+
+      function toggleMenu() {
+        hamburger.classList.contains('active') ? closeMenu() : openMenu();
+      }
+
+      /* Click & keyboard */
+      hamburger.addEventListener('click', toggleMenu);
+      hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleMenu();
+        }
+      });
+
+      /* Close when a nav link is tapped on mobile */
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth < 900) closeMenu();
+        });
+      });
+
+      /* Clean up if viewport grows past desktop breakpoint */
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 900) closeMenu();
+      });
+    </script>
 </body>
 </html>
