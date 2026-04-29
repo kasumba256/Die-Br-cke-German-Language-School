@@ -143,7 +143,7 @@ nav {
 
 /* Enroll button — hidden on small mobile, shown from 480px */
 .enroll-btn {
-  background: linear-gradient(90deg, #0077b6 0%, #00b4d8 100%);
+   background: linear-gradient(90deg, #e5a900 0%, #e7ae0f 100%);
   color: #fff;
   border: none;
   border-radius: 24px;
@@ -159,7 +159,7 @@ nav {
 }
 
 .enroll-btn:hover {
-  background: linear-gradient(90deg, #00b4d8 0%, #0077b6 100%);
+   background: linear-gradient(90deg, #e5a900 0%, #e7ae0f 100%);
   transform: translateY(-2px) scale(1.04);
 }
 
